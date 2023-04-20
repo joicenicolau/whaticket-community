@@ -48,7 +48,7 @@ const reducer = (state, action) => {
     const newQueues = [];
 
     queues.forEach((queue) =>  {
-      console.log(queue)
+      console.log('redux' +queue)
       const queueIndex = state.findIndex((q) => q.id === queue.id);
       if (queueIndex !== -1) {
         state[queueIndex] = queue;
@@ -101,6 +101,7 @@ const Queues = () => {
       setLoading(true);
       try {
         const { data } = await api.get("/queue");
+        console.log('data', data);
         dispatch({ type: "LOAD_QUEUES", payload: data });
 
         setLoading(false);

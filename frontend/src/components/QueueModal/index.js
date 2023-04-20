@@ -118,15 +118,13 @@ const QueueModal = ({ open, onClose, queueId }) => {
 
 	const handleSaveQueue = async (values) => {
 		try {
-			// console.log(values)
+			console.log('form', values);
+			values.tempoLimite = tempoLimite;
 			if (queueId) {
 				await api.put(`/queue/${queueId}`, values);
 			} else {
 				await api.post("/queue", values);
 			}
-			// se o checkbox estiver selecionado também adicionar ele
-			values.tempoLimite = tempoLimite;
-			console.log(values);
 			toast.success("Queue saved successfully");
 			handleClose();
 		} catch (err) {
@@ -138,8 +136,6 @@ const QueueModal = ({ open, onClose, queueId }) => {
     setState({ ...state, enableTimeLimit: event.target.checked });
     setTempoLimite(0); // reseta o Tempo limite quando for desabilitado
   };
-
-	
 	
 	return (
 			<div className={classes.root}>
