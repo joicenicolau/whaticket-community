@@ -6,10 +6,12 @@ interface QueueData {
   name: string;
   color: string;
   greetingMessage?: string;
+  tempoLimite: number;
 }
 
 const CreateQueueService = async (queueData: QueueData): Promise<Queue> => {
-  const { color, name } = queueData;
+  const { color, name, tempoLimite } = queueData;
+  console.log("serv", tempoLimite);
 
   const queueSchema = Yup.object().shape({
     name: Yup.string()

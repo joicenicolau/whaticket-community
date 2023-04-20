@@ -6,7 +6,7 @@ import App from "./App";
 
 ReactDOM.render(
 	<CssBaseline>
-		<App />
+		 <App />
 	</CssBaseline>,
 	document.getElementById("root")
 );
